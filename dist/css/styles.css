@@ -98,6 +98,10 @@ a {
   color: white;
 }
 
+.text--peach {
+  color: #d97e4a;
+}
+
 .btn {
   width: 10rem;
   height: 3rem;
@@ -190,6 +194,9 @@ a {
   justify-content: space-between;
   gap: 4.25rem;
   margin-top: clamp(5.75rem, 19.3vw, 12.5rem);
+}
+
+.categories--home {
   margin-bottom: 7.5rem;
 }
 
@@ -234,6 +241,57 @@ a {
   font-size: 0.9375rem;
   line-height: 1.25rem;
   letter-spacing: 0.06688rem;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(7.5rem, 12vw, 10rem);
+  margin-block: 4rem 10rem;
+}
+
+.products__card {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.products__text-container, .products__image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.products__text-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  inset: 0;
+  max-width: 35.75rem;
+}
+
+.products__h2 {
+  font-size: clamp(2.25rem, 7.3vw, 2.5rem);
+  line-height: clamp(2.5rem, 7.6vw, 2.75rem);
+  margin-bottom: 1.5rem;
+}
+
+.products__p {
+  opacity: 0.5;
+  margin-bottom: 1.75rem;
+}
+
+.products__image-container {
+  border-radius: 0.5rem;
+  height: 22rem;
+  background-color: #f2f2f2;
+  overflow: hidden;
+}
+
+.products__image {
+  max-height: 22rem;
 }
 
 .hero {
@@ -368,6 +426,19 @@ a {
   background-repeat: no-repeat;
   background-position: center center;
   aspect-ratio: 5 / 8;
+}
+
+.header__category-title {
+  padding-block: clamp(2rem, 8.5vw, 6.125rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__category-header {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  line-height: clamp(2.375rem, 6vw, 2.75rem);
+  letter-spacing: 0.125rem;
 }
 
 .header::before {
@@ -572,6 +643,27 @@ a {
     font-size: 1.125rem;
     line-height: 1.5rem;
     letter-spacing: 0.08125rem;
+  }
+  .products__card {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    height: 35rem;
+  }
+  .products__image-container {
+    height: 100%;
+  }
+  .products__image-container--flipped {
+    order: 2;
+  }
+  .products__text-container {
+    width: 27.8125rem;
+  }
+  .products__text-container:where(:not(.products__text-container--flipped)) {
+    padding-left: 5.625rem;
+  }
+  .products__text-block {
+    text-align: left;
+    align-items: flex-start;
   }
   .featured-items__featured-card {
     display: grid;
