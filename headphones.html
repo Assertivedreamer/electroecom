@@ -21,8 +21,7 @@
     <body>
         <header class="header header--category">
             <nav class="header__nav container">
-                <a
-                    href="#"
+                <button
                     aria-label="toggle navigation menu"
                     id="hamburger-toggle"
                     class="header__hamburger-toggle"
@@ -34,13 +33,17 @@
                         id="hamburger"
                         aria-hidden="true"
                     />
+                </button>
+                <a
+                    href="./index.html"
+                    aria-label="auddiophile logo, link to home"
+                >
+                    <img
+                        src="./assets/shared/desktop/logo.svg"
+                        alt="audiophile logo"
+                        class="header__logo"
+                    />
                 </a>
-
-                <img
-                    src="./assets/shared/desktop/logo.svg"
-                    alt="audiophile logo"
-                    class="header__logo"
-                />
                 <ul class="header__links">
                     <li>
                         <a href="./index.html" class="nav__link">home</a>
@@ -82,6 +85,59 @@
             </section>
         </header>
         <main class="headphones">
+            <section class="categories categories--nav container">
+                <a href="./headphones.html" class="categories__card">
+                    <img
+                        src="./assets/shared/desktop/image-category-thumbnail-headphones.png"
+                        alt="headphones"
+                        class="categories__image"
+                    />
+                    <div class="categories__text-block">
+                        <h6 class="categories__h6">headphones</h6>
+                        <div class="btn btn--shop">
+                            <p class="sub-title">shop</p>
+                            <img
+                                src="./assets/shared/desktop/icon-arrow-right.svg"
+                                alt="arrow right"
+                            />
+                        </div>
+                    </div>
+                </a>
+                <a href="./speakers.html" class="categories__card">
+                    <img
+                        src="./assets/shared/desktop/image-category-thumbnail-speakers.png"
+                        alt="headphones"
+                        class="categories__image"
+                    />
+                    <div class="categories__text-block">
+                        <h6 class="categories__h6">speakers</h6>
+                        <div class="btn btn--shop">
+                            <p class="sub-title">shop</p>
+                            <img
+                                src="./assets/shared/desktop/icon-arrow-right.svg"
+                                alt="arrow right"
+                            />
+                        </div>
+                    </div>
+                </a>
+                <a href="./earphones.html" class="categories__card">
+                    <img
+                        src="./assets/shared/desktop/image-category-thumbnail-earphones.png"
+                        alt="headphones"
+                        class="categories__image"
+                    />
+                    <div class="categories__text-block">
+                        <h6 class="categories__h6">earphones</h6>
+                        <div class="btn btn--shop">
+                            <p class="sub-title">shop</p>
+                            <img
+                                src="./assets/shared/desktop/icon-arrow-right.svg"
+                                alt="arrow right"
+                            />
+                        </div>
+                    </div>
+                </a>
+            </section>
             <section class="products container">
                 <div class="products__card">
                     <div class="products__image-container">
