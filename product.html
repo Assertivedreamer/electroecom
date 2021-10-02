@@ -10,6 +10,7 @@
             sizes="32x32"
             href="./assets/favicon-32x32.png"
         />
+
         <link rel="stylesheet" href="./dist/css/normalize.css" />
         <link rel="stylesheet" href="./dist/css/styles.css" />
         <script src="./dist/js/main.js" defer></script>
@@ -17,8 +18,8 @@
         <title>Frontend Mentor | Audiophile e-commerce website</title>
     </head>
 
-    <body>
-        <header class="header header--category">
+    <body class="product-page">
+        <header class="header header--product">
             <nav class="header__nav container">
                 <button
                     aria-label="toggle navigation menu"
@@ -57,9 +58,7 @@
                     </li>
 
                     <li>
-                        <a
-                            href="./earphones.html"
-                            class="nav__link nav__link--current-page"
+                        <a href="./earphones.html" class="nav__link"
                             >earphones</a
                         >
                     </li>
@@ -78,12 +77,44 @@
                     />
                 </a>
             </nav>
-            <section class="header__category-title">
-                <h1 class="text--white header__category-header">earphones</h1>
-            </section>
+            <span class="header__border container container--wide"></span>
         </header>
-        <main class="headphones">
-            <section class="categories categories--nav container">
+
+        <main class="product">
+            <div class="container">
+                <a href="javascript:history.back()" class="product__back-button"
+                    >go back</a
+                >
+            </div>
+
+            <section class="product__card container">
+                
+            </section>
+
+            <section class="product__details container">
+                <div class="product__info">
+                    <h2 class="product__h2">Features</h2>
+                    
+                </div>
+                <div class="product__content">
+                    <h2 class="product__h2">in the box</h2>
+                    <div class="product__items">
+                    </div>
+                </div>
+            </section>
+
+            <section class="product__gallery-grid container">
+                <div class="product__gallery product__gallery-1"></div>
+                <div class="product__gallery product__gallery-2"></div>
+                <div class="product__gallery product__gallery-3"></div>
+            </section>
+
+            <section class="suggestions container">
+                <h2 class="suggestions__h2">you may also like</h2>
+                <div class="suggestions__grid"></div>
+            </section>
+
+            <section class="categories container">
                 <a href="./headphones.html" class="categories__card">
                     <img
                         src="./assets/shared/desktop/image-category-thumbnail-headphones.png"
@@ -136,49 +167,7 @@
                     </div>
                 </a>
             </section>
-            <section class="products container">
-                <div class="products__card">
-                    <div class="products__image-container">
-                        <picture>
-                            <source
-                                media="(min-width: 1000px)"
-                                srcset="
-                                    ./assets/product-yx1-earphones/desktop/image-product.jpg
-                                "
-                            />
-                            <img
-                                src="./assets/product-yx1-earphones/mobile/image-product.jpg"
-                                alt="yx1 earphones"
-                                class="products__image"
-                            />
-                        </picture>
-                    </div>
-                    <div class="products__text-container">
-                        <div class="products__text-block">
-                            <p class="overline text--peach products__overline">
-                                new product
-                            </p>
-                            <h2 class="products__h2">YX1 wireless earphones</h2>
-                            <p class="products__p">
-                                Tailor your listening experience with bespoke
-                                dynamic drivers from the new YX1 Wireless
-                                Earphones. Enjoy incredible high-fidelity sound
-                                even in noisy environments with its active noise
-                                cancellation feature.
-                            </p>
-                            <a
-                                href="./product.html"
-                                class="btn btn--peach"
-                                data-link="product"
-                                data-item="yx1-earphones"
-                                >see product</a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="categories container">
+            <section class="categories categories--nav container">
                 <a href="./headphones.html" class="categories__card">
                     <img
                         src="./assets/shared/desktop/image-category-thumbnail-headphones.png"
@@ -294,9 +283,7 @@
                                 >
                             </li>
                             <li>
-                                <a
-                                    href="./earphones.html"
-                                    class="nav__link nav__link--current-page"
+                                <a href="./earphones.html" class="nav__link"
                                     >earphones</a
                                 >
                             </li>
