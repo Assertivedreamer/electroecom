@@ -72,6 +72,7 @@
                     aria-label="link to cart"
                     id="cart-link"
                 >
+                    <span class="header__quantity"></span>
                     <img
                         src="./assets/shared/desktop/icon-cart.svg"
                         alt="cart"
@@ -98,6 +99,7 @@
                         class="btn btn--peach"
                         data-link="product"
                         data-item="xx99-mark-two-headphones"
+                        data-name="xx99 mark ii"
                         >see product</a
                     >
                 </div>
@@ -242,6 +244,7 @@
                             class="btn btn--black"
                             data-link="product"
                             data-item="zx9-speaker"
+                            data-name="zx9 speaker"
                             >See product</a
                         >
                     </div>
@@ -270,6 +273,7 @@
                             class="btn btn--transparent"
                             data-link="product"
                             data-item="zx7-speaker"
+                            data-name="zx7 speaker"
                             >see product</a
                         >
                     </div>
@@ -309,7 +313,40 @@
                                 class="btn btn--transparent"
                                 data-link="product"
                                 data-item="yx1-earphones"
+                                data-name="yx1"
                                 >see product</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cart">
+                <div class="cart__container container">
+                    <div class="cart__card cart__card--empty">
+                        <img class="cart__empty-cart" src="./assets/shared/desktop/icon-cart.svg" alt="cart">
+                        <p class="cart__empty-para">your cart is empty</p>
+                    </div>
+                    <div class="cart__card">
+                        <div class="cart__inner-container">
+                            <div class="cart__top">
+                                <div class="cart__h6">
+                                    cart &nbsp;(<span class="cart__quantity"
+                                        >0</span
+                                    >)
+                                </div>
+                                <button class="cart__remove">remove all</button>
+                            </div>
+                            <div class="cart__basket"></div>
+                            <div class="cart__total">
+                                <span class="cart__tag"> total </span>
+
+                                <span class="cart__grand-total">0</span>
+                            </div>
+                            <a
+                                href="./checkout.html"
+                                class="cart__btn btn btn--peach"
+                                >checkout</a
                             >
                         </div>
                     </div>

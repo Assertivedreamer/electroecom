@@ -69,6 +69,7 @@
                     aria-label="link to cart"
                     id="cart-link"
                 >
+                    <span class="header__quantity"></span>
                     <img
                         src="./assets/shared/desktop/icon-cart.svg"
                         alt="cart"
@@ -81,25 +82,56 @@
         </header>
 
         <main class="product">
+            <section class="cart">
+                <div class="cart__container container">
+                    <div class="cart__card cart__card--empty">
+                        <img
+                            class="cart__empty-cart"
+                            src="./assets/shared/desktop/icon-cart.svg"
+                            alt="cart"
+                        />
+                        <p class="cart__empty-para">your cart is empty</p>
+                    </div>
+                    <div class="cart__card">
+                        <div class="cart__inner-container">
+                            <div class="cart__top">
+                                <div class="cart__h6">
+                                    cart &nbsp;(<span class="cart__quantity"
+                                        >0</span
+                                    >)
+                                </div>
+                                <button class="cart__remove">remove all</button>
+                            </div>
+                            <div class="cart__basket"></div>
+                            <div class="cart__total">
+                                <span class="cart__tag"> total </span>
+
+                                <span class="cart__grand-total">$ &nbsp;0</span>
+                            </div>
+                            <a
+                                href="./checkout.html"
+                                class="cart__btn btn btn--peach"
+                                >checkout</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </section>
             <div class="container">
                 <a href="javascript:history.back()" class="product__back-button"
                     >go back</a
                 >
             </div>
 
-            <section class="product__card container">
-                
-            </section>
+            <section class="product__card container"></section>
 
             <section class="product__details container">
                 <div class="product__info">
                     <h2 class="product__h2">Features</h2>
-                    
                 </div>
                 <div class="product__content">
                     <h2 class="product__h2">in the box</h2>
-                    <div class="product__items">
-                    </div>
+                    <div class="product__items"></div>
                 </div>
             </section>
 
