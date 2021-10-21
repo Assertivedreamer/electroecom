@@ -178,6 +178,10 @@ a {
   color: #d97e4a;
 }
 
+.btn:active {
+  transform: scale(0.95);
+}
+
 .add-to-cart-animation {
   animation-name: addedToCart;
   animation-duration: 900ms;
@@ -707,6 +711,7 @@ a {
 
 .checkout__input::placeholder {
   opacity: 0.4;
+  text-transform: capitalize;
 }
 
 .checkout__input:where(:not(.checkout__radio)) {
@@ -1096,6 +1101,7 @@ a {
   border-radius: 50%;
   color: white;
   text-align: center;
+  visibility: hidden;
 }
 
 .cart {

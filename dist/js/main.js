@@ -136,7 +136,7 @@ function createProductListeners() {
 }
 
 function toggleEmptyCartCard() {
-    emptyCartCard.style.visibility = cart.length === 0 ? 'visible' : 'hidden'
+    emptyCartCard.style.visibility = cart.length === 0 ? "visible" : "hidden";
 }
 
 function emptyCart(event = null, checkout = false) {
@@ -146,7 +146,7 @@ function emptyCart(event = null, checkout = false) {
     cartBasket.innerHTML = "";
     grandTotal.innerHTML = `$ &nbsp;0`;
     basketQuantity.innerHTML = 0;
-    updateCartQuantityBubble()
+    updateCartQuantityBubble();
     if (!checkout) {
         setTimeout(() => {
             handleCartModal();
@@ -194,6 +194,7 @@ function createPicture(name, className, { mobile, tablet, desktop }) {
                             "
                         />
                         <img
+                            loading="lazy"
                             src="${mobile}"
                             alt="${name}"
                             class="${className}"
@@ -248,7 +249,7 @@ function createSuggestionCards(suggestions) {
 }
 
 function addToCart(event) {
-    
+
     let quantity = parseInt(
         document.querySelector(".product__quantity").textContent
     );
@@ -264,7 +265,7 @@ function addToCart(event) {
     this.textContent = `successfully added to cart !`;
     setTimeout(() => {
         this.classList.remove("add-to-cart-animation");
-        this.textContent = `add to cart`
+        this.textContent = `add to cart`;
     }, 1000);
 
     if (object) {
@@ -304,7 +305,6 @@ async function addToPage() {
         new: isNewItem,
         price,
         others,
-        slug,
     } = products.find((obj) => obj.slug === productSlug);
     features = features.split("\n");
     let newItem = isNewItem
@@ -381,7 +381,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //CART
 
 function updateCartBasket() {
-    let cart = JSON.parse(localStorage.getItem("cart"));
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
     cartBasket.innerHTML = "";
     let total = 0;
 
@@ -532,7 +532,6 @@ function formatNumber(number) {
 //CHECKOUT
 function validateForm() {
     const name = document.querySelector("#name");
-    const phone = document.querySelector("#phone");
     const address = document.querySelector("#address");
     const zipCode = document.querySelector("#zip-code");
     const city = document.querySelector("#city");
@@ -598,6 +597,7 @@ function validatePayment() {
     const radioInputs = [...document.querySelectorAll(".checkout__radio")];
 
     const paymentError = document.querySelector(".checkout__error--payment");
+    paymentError.classList.remove("error");
 
     if (checkedRadioButton?.id === "e-money") {
         if (!validateEmoney()) {
@@ -649,11 +649,16 @@ function validateEmoney() {
 }
 
 function handleSubmit() {
-    if (validateForm()) {
+    let formIsValid = validateForm();
+    let scrollTarget = formIsValid
+        ? document.querySelector("#checkout")
+        : document.querySelector(".error");
+    if (formIsValid) {
         checkoutModal.classList.add("open");
         body.classList.add("nav-is-open");
         emptyCart(null, true);
     }
+    scrollTarget.scrollIntoView();
 }
 
 //Accordian
