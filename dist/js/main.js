@@ -2,7 +2,6 @@ const body = document.querySelector("body");
 const hamburgerBtn = document.querySelector(".header__hamburger-toggle");
 const hamburgerImg = document.querySelector(".header__hamburger");
 const mobileNav = document.querySelector(".categories--nav");
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
 const cartModal = document.querySelector(".cart");
 const cartBtn = document.querySelector(".header__cart");
 const cartBasket = document.querySelector(".cart__basket");
@@ -17,6 +16,7 @@ const accordianBtn = document.querySelector(".checkout__accordian-btn");
 const emptyCartCard = document.querySelector(".cart__card--empty");
 
 const productsJSONData = getProducts();
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 //FUNCTIONS
 
@@ -170,13 +170,6 @@ function updateQuantity(event) {
     quantityContainer.textContent = quantity;
 }
 
-//EVENT LISTENERS
-hamburgerBtn.addEventListener("click", handleHam);
-cartBtn.addEventListener("click", handleCartModal);
-emptyCartBtn.addEventListener("click", emptyCart);
-submitBtn?.addEventListener("click", handleSubmit);
-accordianBtn?.addEventListener("click", toggleAccordian);
-
 //PRODUCT PAGE
 
 function createPicture(name, className, { mobile, tablet, desktop }) {
@@ -202,24 +195,24 @@ function createPicture(name, className, { mobile, tablet, desktop }) {
                     </picture>`;
 }
 
-function createGallery({ first, second, third }) {
+function createGallery({ first, second, third }, name) {
     const galleryGrid = document.querySelector(".product__gallery-grid");
     let gallery =
         `<div class="product__gallery product__gallery-1">` +
         createPicture(
-            "galleryimage",
+            name,
             "product__gallery-image-1 product__gallery-image",
             first
         ) +
         `</div ><div class="product__gallery product__gallery-2">` +
         createPicture(
-            "galleryimage",
+            name,
             "product__gallery-image-2 product__gallery-image",
             second
         ) +
         `</div ><div class="product__gallery product__gallery-3">` +
         createPicture(
-            "galleryimage",
+            name,
             "product__gallery-image-3 product__gallery-image",
             third
         ) +
@@ -249,7 +242,6 @@ function createSuggestionCards(suggestions) {
 }
 
 function addToCart(event) {
-
     let quantity = parseInt(
         document.querySelector(".product__quantity").textContent
     );
@@ -265,8 +257,7 @@ function addToCart(event) {
     this.textContent = `successfully added to cart !`;
     setTimeout(() => {
         this.classList.remove("add-to-cart-animation");
-        this.textContent = `add to cart`;
-    }, 1000);
+    }, 700);
 
     if (object) {
         cart = cart.map((item) =>
@@ -287,7 +278,7 @@ function addToCartListeners() {
     toCartBtns.forEach((btn) => btn.addEventListener("click", addToCart));
 }
 
-async function addToPage() {
+async function populateProductPage() {
     const productCard = document.querySelector(".product__card");
     const productInfo = document.querySelector(".product__info");
     const productItems = document.querySelector(".product__items");
@@ -354,7 +345,7 @@ async function addToPage() {
     }, "");
 
     createSuggestionCards(others);
-    createGallery(gallery);
+    createGallery(gallery, name);
 
     productCard.innerHTML = imageContainer;
     productInfo.innerHTML += `<p class="product__features product__para">${features[0]}<br/><br/>${features[2]}</p>`;
@@ -367,16 +358,6 @@ async function addToPage() {
     createProductListeners();
     addToCartListeners();
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    if (body.classList.contains("product-page")) {
-        addToPage();
-    }
-
-    createProductListeners();
-    updateCartBasket();
-    populateCheckoutInfo();
-});
 
 //CART
 
@@ -417,10 +398,9 @@ function updateCartBasket() {
 
 function updateCartQuantityBubble(quantity) {
     if (!quantity) {
-        cartQuantityDisplay.classList.add("invisible");
+        cartQuantityDisplay.textContent = "";
     } else {
         cartQuantityDisplay.textContent = quantity;
-        cartQuantityDisplay.classList.remove("invisible");
     }
 }
 
@@ -661,7 +641,7 @@ function handleSubmit() {
     scrollTarget.scrollIntoView();
 }
 
-//Accordian
+//ACCORDIAN
 
 function toggleAccordian() {
     const receiptContainer = document.querySelector(
@@ -710,3 +690,19 @@ function insertButtonText() {
         return;
     }
 }
+
+//EVENT LISTENERS
+hamburgerBtn.addEventListener("click", handleHam);
+cartBtn.addEventListener("click", handleCartModal);
+emptyCartBtn.addEventListener("click", emptyCart);
+submitBtn?.addEventListener("click", handleSubmit);
+accordianBtn?.addEventListener("click", toggleAccordian);
+document.addEventListener("DOMContentLoaded", () => {
+    if (body.classList.contains("product-page")) {
+        populateProductPage();
+    }
+
+    createProductListeners();
+    updateCartBasket();
+    populateCheckoutInfo();
+});

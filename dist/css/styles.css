@@ -12,6 +12,24 @@ html {
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  width: 0.9375rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d97e4a;
+}
+
+@supports (scrollbar-color: red blue) {
+  * {
+    scrollbar-color: #d97e4a #0f0f0f;
+  }
+}
+
 body {
   font-family: "Manrope", sans-serif;
   position: relative;
@@ -170,6 +188,8 @@ a {
   display: flex;
   align-items: center;
   gap: 0.875rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
   height: max-content;
   transition: gap 0.2s ease-in-out;
 }
@@ -183,24 +203,49 @@ a {
 }
 
 .add-to-cart-animation {
-  animation-name: addedToCart;
-  animation-duration: 900ms;
-  animation-timing-function: linear;
+  -webkit-animation-name: addedToCart;
+          animation-name: addedToCart;
+  -webkit-animation-duration: 700ms;
+          animation-duration: 700ms;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes addedToCart {
+  5% {
+    transform: scale(0.8);
+  }
+  20% {
+    transform: scale(1.125);
+    border-radius: 12.5rem;
+    box-shadow: 0 0 0 4px white, 0 0 0 5px #d97e4a;
+  }
+  25% {
+    transform: scale(1);
+    border-radius: 12.5rem;
+  }
+  35% {
+    transform: scale(1.2);
+    border-radius: 12.5rem;
+  }
 }
 
 @keyframes addedToCart {
   5% {
     transform: scale(0.8);
   }
-  25% {
-    transform: scale(1.35);
+  20% {
+    transform: scale(1.125);
     border-radius: 12.5rem;
-    background-color: #23bf36;
+    box-shadow: 0 0 0 4px white, 0 0 0 5px #d97e4a;
+  }
+  25% {
+    transform: scale(1);
+    border-radius: 12.5rem;
   }
   35% {
-    transform: scale(1.35);
+    transform: scale(1.2);
     border-radius: 12.5rem;
-    background-color: #23bf36;
   }
 }
 
@@ -304,6 +349,8 @@ a {
   font-size: 0.9375rem;
   line-height: 1.25rem;
   letter-spacing: 0.06688rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .products {
@@ -448,6 +495,12 @@ a {
   margin-bottom: 1.5rem;
 }
 
+.featured-items__h2--small {
+  font-size: 1.75rem;
+  line-height: 2.375rem;
+  letter-spacing: 0.125rem;
+}
+
 .featured-items__p {
   opacity: 0.75;
   margin-bottom: 1.75rem;
@@ -464,7 +517,8 @@ a {
 
 .featured-items__image {
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .featured-items__link {
@@ -478,6 +532,8 @@ a {
 .product__back-button {
   display: block;
   text-transform: capitalize;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   font-size: 0.9375rem;
   line-height: 1.5625rem;
@@ -709,6 +765,26 @@ a {
   border-color: #cd2c2c;
 }
 
+.checkout__input::-webkit-input-placeholder {
+  opacity: 0.4;
+  text-transform: capitalize;
+}
+
+.checkout__input::-moz-placeholder {
+  opacity: 0.4;
+  text-transform: capitalize;
+}
+
+.checkout__input:-ms-input-placeholder {
+  opacity: 0.4;
+  text-transform: capitalize;
+}
+
+.checkout__input::-ms-input-placeholder {
+  opacity: 0.4;
+  text-transform: capitalize;
+}
+
 .checkout__input::placeholder {
   opacity: 0.4;
   text-transform: capitalize;
@@ -766,20 +842,30 @@ a {
   pointer-events: none;
 }
 
+.checkout__radio-overlay::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: white;
+  z-index: 100;
+}
+
 .checkout__radio-overlay.checked::after {
   content: "";
   position: absolute;
-  width: 0.625rem;
-  height: 0.625rem;
+  width: 0.75rem;
+  height: 0.75rem;
   background-color: #d97e4a;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
+  z-index: 500;
 }
 
 .checkout input[type="radio"] {
-  z-index: -1;
   pointer-events: all;
   cursor: pointer;
 }
@@ -926,6 +1012,8 @@ a {
 
 .summary__h6 {
   margin-bottom: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .summary__product {
@@ -1101,6 +1189,9 @@ a {
   border-radius: 50%;
   color: white;
   text-align: center;
+}
+
+.header__quantity:empty {
   visibility: hidden;
 }
 
@@ -1141,7 +1232,8 @@ a {
 }
 
 .cart__empty-cart {
-  filter: invert(180);
+  -webkit-filter: invert(180);
+          filter: invert(180);
   opacity: 0.3;
   width: 50%;
 }
@@ -1372,7 +1464,8 @@ a {
 }
 
 .footer__icon:hover {
-  filter: invert(100%) invert(54%) sepia(26%) saturate(1140%) hue-rotate(338deg) brightness(99%) contrast(81%);
+  -webkit-filter: invert(100%) invert(54%) sepia(26%) saturate(1140%) hue-rotate(338deg) brightness(99%) contrast(81%);
+          filter: invert(100%) invert(54%) sepia(26%) saturate(1140%) hue-rotate(338deg) brightness(99%) contrast(81%);
 }
 
 @media screen and (min-width: 37.5rem) {
