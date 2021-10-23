@@ -41,8 +41,8 @@ Users should be able to:
 
 ### Links
 
--   Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/responsive-multipage-ecommerce-website-1irvgxNA3)
--   Live Site URL: [Add live site URL here](https://fem-audiophile-e-commerce-website.vercel.app/)
+-   Solution URL: [https://www.frontendmentor.io/solutions/responsive-multipage-ecommerce-website-1irvgxNA3](https://www.frontendmentor.io/solutions/responsive-multipage-ecommerce-website-1irvgxNA3)
+-   Live Site URL: [https://fem-audiophile-e-commerce-website.vercel.app/](https://fem-audiophile-e-commerce-website.vercel.app/)
 
 ## My process
 
