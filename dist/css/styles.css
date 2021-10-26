@@ -891,14 +891,14 @@ a {
     border-radius: 0.5rem;
     max-width: 33.75rem;
     padding: 2rem;
-    left: 10000px;
-    right: 0;
+    right: 10000px;
     z-index: 1000;
-    transition: left 0.3s ease-in-out;
+    transition: right 0.3s ease-in-out;
 }
 
 .checkout__modal.open {
     left: 0;
+    right: 0;
 }
 
 .checkout__checkmark {
