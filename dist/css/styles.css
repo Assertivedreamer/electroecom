@@ -891,7 +891,7 @@ a {
     border-radius: 0.5rem;
     max-width: 33.75rem;
     padding: 2rem;
-    right: 10000px
+    right: 10000px;
     z-index: 1000;
     transition: right 0.3s ease-in-out;
 }
